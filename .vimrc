@@ -17,6 +17,9 @@
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+" Remaps
+:imap jj <Esc>
+
 "--------------------------------
 "          Appearance
 "--------------------------------
