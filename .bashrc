@@ -9,6 +9,7 @@ ln -s ~/Configfiles/.vim ~/.vim
 
 
 # Prompt stiles
+LIGHT_GREEN="\[\e[1;92m\]"
 LIGHT_RED="\[\e[1;31m\]"
 LIGHT_MAGENTA="\[\e[1;35m\]"
 LIGHT_CYAN="\[\e[1;36m\]"
@@ -18,13 +19,13 @@ function set_git_branch {
   # Capture the output of the "git status" command.
   local git_status="$(git status -unormal 2>&1)"
 
-  if [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+  if [[ "$git_status" =~ not\ a\ git\ repo ]]; then
       BRANCH=''
       return
   fi
 
   if [[ ${git_status} =~ "working tree clean" ]]; then
-    state=${GREEN}
+    state=${LIGHT_GREEN}
   elif [[ ${git_status} =~ "Changes to be committed" ]]; then
     state="${LIGHT_MAGENTA}"
   else
@@ -50,13 +51,13 @@ function set_git_branch {
   # Get the name of the branch.
   branch_pattern="^On branch ([^${IFS}]*)"
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
-    branch=":${BASH_REMATCH[1]}"
+    branch="${BASH_REMATCH[1]}"
   else
     branch=''
   fi
 
   # Set the final branch string.
-  BRANCH="${state}${branch}${COLOR_NONE}${remote}"
+  BRANCH=":${state}${branch}${WHITE}${remote}"
 }
 
 function set_bash_prompt () {
@@ -64,7 +65,7 @@ function set_bash_prompt () {
   set_git_branch
 
   # Set the bash prompt variable.
-  PS1="${LIGHT_CYAN}\w${WHITE}${BRANCH}${COLOR_NONE}\$ "
+  PS1="${LIGHT_CYAN}\w${WHITE}${BRANCH}${WHITE}\$ "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
