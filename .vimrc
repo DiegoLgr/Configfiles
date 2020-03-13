@@ -3,8 +3,13 @@
 
 :filetype plugin on
 
+:let mapleader = "-"
+
 :set foldmethod=indent
 :set foldnestmax=1
+
+:nnoremap <leader>ev :sp $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
 "-------------------------------
 "          Numbers
 "--------------------------------

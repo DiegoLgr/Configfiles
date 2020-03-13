@@ -4,3 +4,6 @@
 :setlocal shiftwidth=2
 :setlocal expandtab
 :set textwidth=80
+
+"Compilation
+:nnoremap <leader>c :!pdflatex %<cr>
