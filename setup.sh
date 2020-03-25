@@ -5,3 +5,4 @@ ln -s ~/Configfiles/.vim ~/.vim
 
 # install programs
 apt install inotify-tools
+apt install texlive-full
