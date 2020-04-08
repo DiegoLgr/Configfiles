@@ -10,7 +10,7 @@ ln -s ~/Configfiles/.vim ~/.vim
 
 # Prompt stiles
 LIGHT_GREEN="\[\e[1;92m\]"
-DARK_GREEN="\[\e[38;5;23m\]"
+DARK_GREEN="\[\e[38;5;28m\]"
 DARK_RED="\[\e[38;5;88m\]"
 DARK_MAGENTA="\[\e[38;5;98m\]"
 DARK_BLUE="\[\e[38;5;26m\]"
