@@ -10,6 +10,7 @@
 
 :nnoremap <leader>ev :sp $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+:nnoremap <leader>q @q
 "-------------------------------
 "          Numbers
 "--------------------------------
