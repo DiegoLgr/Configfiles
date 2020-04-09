@@ -3,14 +3,22 @@
 
 :filetype plugin on
 
+" Leader
 :let mapleader = "-"
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+:nnoremap <leader>ev :sp $MYVIMRC<cr>
+:nnoremap <leader>q @q
 
 :set foldmethod=indent
 :set foldnestmax=1
 
-:nnoremap <leader>ev :sp $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
-:nnoremap <leader>q @q
+" Tabs config
+:setlocal tabstop=4
+:setlocal softtabstop=4
+:setlocal shiftwidth=4
+:setlocal expandtab
+:set autoindent
+
 "-------------------------------
 "          Numbers
 "--------------------------------
@@ -33,7 +41,7 @@
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=1
 :autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
-:colo koehler
+:colo peachpuff
 
 " Hilglight line in normal mode.
 :set cul
@@ -48,6 +56,6 @@
 :set colorcolumn=80
 
 " Custom highlights
-:hi CursorLine cterm=bold ctermbg=234
-:hi ColorColumn ctermbg=235
+:hi CursorLine ctermbg=255
+:hi ColorColumn ctermbg=255
 :hi Folded ctermbg=NONE

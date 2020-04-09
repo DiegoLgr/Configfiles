@@ -10,6 +10,11 @@ ln -s ~/Configfiles/.vim ~/.vim
 
 # Prompt stiles
 LIGHT_GREEN="\[\e[1;92m\]"
+DARK_GREEN="\[\e[38;5;28m\]"
+DARK_RED="\[\e[38;5;88m\]"
+DARK_MAGENTA="\[\e[38;5;98m\]"
+DARK_BLUE="\[\e[38;5;26m\]"
+DARK_GRAY="\[\e[38;5;236m\]"
 LIGHT_RED="\[\e[1;31m\]"
 LIGHT_MAGENTA="\[\e[1;35m\]"
 LIGHT_CYAN="\[\e[1;36m\]"
@@ -25,27 +30,11 @@ function set_git_branch {
   fi
 
   if [[ ${git_status} =~ "working tree clean" ]]; then
-    state=${LIGHT_GREEN}
+    state=${DARK_GREEN}
   elif [[ ${git_status} =~ "Changes to be committed" ]]; then
-    state="${LIGHT_MAGENTA}"
+    state="${DARK_MAGENTA}"
   else
     state="${LIGHT_RED}"
-  fi
-
-  # Set arrow icon based on status against remote.
-  remote_pattern="Your branch is (.*) of"
-  if [[ ${git_status} =~ ${remote_pattern} ]]; then
-    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-      remote=" ${LIGHT_MAGENTA}ahead"
-    else
-      remote=" ${LIGHT_RED}behind"
-    fi
-  else
-    remote=''
-  fi
-  diverge_pattern="# Your branch and (.*) have diverged"
-  if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-    remote=" {LIGHT_RED}conflicting"
   fi
 
   # Get the name of the branch.
@@ -57,7 +46,7 @@ function set_git_branch {
   fi
 
   # Set the final branch string.
-  BRANCH=":${state}${branch}${WHITE}${remote}"
+  BRANCH=":${state}${branch}${DARK_GRAY}${remote}"
 }
 
 function set_bash_prompt () {
@@ -65,7 +54,7 @@ function set_bash_prompt () {
   set_git_branch
 
   # Set the bash prompt variable.
-  PS1="${LIGHT_CYAN}\w${WHITE}${BRANCH}${WHITE}\$ "
+  PS1="${DARK_BLUE}\w${DARK_GRAY}${BRANCH}${DARK_GRAY}\$ "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
