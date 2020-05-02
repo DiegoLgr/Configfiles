@@ -1,11 +1,8 @@
 # Set up configfiles from repo
-rm ~/.bashrc
 rm ~/.vimrc
 rm -r ~/.vim
-ln -s ~/Configfiles/.bashrc ~/.bashrc
 ln -s ~/Configfiles/.vimrc ~/.vimrc
 ln -s ~/Configfiles/.vim ~/.vim
-
 
 
 # Prompt stiles
@@ -14,7 +11,7 @@ DARK_GREEN="\[\e[38;5;28m\]"
 DARK_RED="\[\e[38;5;88m\]"
 DARK_MAGENTA="\[\e[38;5;98m\]"
 DARK_BLUE="\[\e[38;5;26m\]"
-DARK_GRAY="\[\e[38;5;236m\]"
+DARK_GRAY="\[\e[38;5;15m\]"
 LIGHT_RED="\[\e[1;31m\]"
 LIGHT_MAGENTA="\[\e[1;35m\]"
 LIGHT_CYAN="\[\e[1;36m\]"
